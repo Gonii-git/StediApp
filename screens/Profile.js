@@ -24,8 +24,11 @@ const Profile = (props) => {
     const getUserName = async ()=>{
       const cameraPermission = await Camera.requestCameraPermissionsAsync();
       setCameraPermission(cameraPermission);
-      const userName = await AsyncStorage.getItem('userName');
+      const userName = await AsyncStorage.getItem('userEmail');
       setuserName(userName);
+      
+      const profilePhoto = await AsyncStorage.getItem('profilePhoto');
+      setProfilePhoto(profilePhoto);
     };
     getUserName();
   },[]);
